@@ -1,18 +1,10 @@
+from typing import List
+
 class Solution:
-    def singleNonDuplicate(self, nums):
-        left = 0
-        right = len(nums) - 1
-
-        while left < right:
-            mid = (left + right) // 2
-
-            # make mid even
-            if mid % 2 == 1:
-                mid -= 1
-
-            if nums[mid] == nums[mid + 1]:
-                left = mid + 2
-            else:
-                right = mid
-
-        return nums[left]
+    def singleNonDuplicate(self, nums: List[int]) -> int:
+        result = 0
+        
+        for num in nums:
+            result ^= num
+        
+        return result
